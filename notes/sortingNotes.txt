@@ -1,0 +1,35 @@
+Je comprends votre préoccupation concernant la dépendance de l'ordre des sommets dans l'algorithme glouton. Pour garantir que l'algorithme glouton renvoie toujours la même clique maximale indépendamment de l'ordre des sommets, vous pouvez effectuer la modification suivante dans votre code :
+
+Au lieu de parcourir les sommets du graphe dans l'ordre initial, vous pouvez trier les sommets en fonction de leur degré décroissant (le nombre d'arêtes adjacentes). Cela garantira que l'algorithme commence par le sommet ayant le plus grand nombre de connexions, ce qui est une bonne stratégie pour trouver une clique maximale. Voici la modification de votre code :
+
+```javascript
+function findLargestClique(graph) {
+  const vertices = graph.vertices;
+  vertices.sort((a, b) => graph.adjacencyList[b].length - graph.adjacencyList[a].length); // Tri des sommets par degré décroissant
+  let maxClique = [];
+  
+  // Fonction pour vérifier si un sommet peut être ajouté à la clique tout en maintenant une clique
+  function canAddToClique(candidate, vertex) {
+    for (const v of candidate) {
+      if (!graph.areAdjacent(v, vertex)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  // Algorithme glouton pour trouver la clique maximale
+  for (const vertex of vertices) {
+    if (canAddToClique(maxClique, vertex)) {
+      maxClique.push(vertex);
+    }
+  }
+
+  console.log('Clique maximale trouvée :', maxClique);
+  return maxClique;
+}
+
+module.exports = findLargestClique;
+```
+
+En triant les sommets par degré décroissant, vous maximisez les chances de trouver une clique maximale. Cette modification garantit que l'algorithme glouton renverra la même clique maximale, quel que soit l'ordre initial des sommets dans le graphe.

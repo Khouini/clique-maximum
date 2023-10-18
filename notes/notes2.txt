@@ -1,0 +1,1 @@
+L'algorithme utilisé ici n'est pas glouton, car il ne sélectionne pas les sommets un par un en fonction de certains critères (comme l'algorithme glouton le ferait)

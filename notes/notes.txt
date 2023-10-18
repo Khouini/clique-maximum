@@ -1,0 +1,42 @@
+Problème de Clique Maximum (Largest Clique Problem) :
+
+Le problème de clique maximum est essentiellement la même chose que le problème de clique maximale. Il consiste à trouver la plus grande clique dans un graphe donné.
+En d'autres termes, le problème de clique maximum cherche à déterminer la taille de la plus grande clique dans un graphe, sans nécessairement trouver la clique elle-même.
+
+L'algorithme glouton est une méthode d'approximation couramment utilisée pour résoudre le Problème de Clique Maximum (ou Largest Clique Problem) dans un graphe. Voici les réponses à vos questions :
+
+**Question 1 : Pseudo-code de l'algorithme glouton pour le Problème de Clique Maximum :**
+
+Voici un pseudo-code de base pour l'algorithme glouton :
+
+```
+Algorithme Glouton pour le Problème de Clique Maximum :
+
+Entrée : Un graphe G = (V, E)
+Sortie : Une clique de taille maximale
+
+1. Initialise une clique vide C.
+2. Pour chaque sommet v dans V (l'ensemble de sommets du graphe) :
+   a. Si l'ajout de v à C ne génère pas de violation de la propriété de la clique, c'est-à-dire, si v est connecté à tous les sommets de C, alors ajoutez v à C.
+3. Retourne C (une clique maximale).
+
+```
+
+**Question 2 : Utilité des différents paramètres de l'algorithme :**
+
+Dans cet algorithme glouton, il n'y a pas de paramètres spécifiques en dehors de l'entrée, qui est le graphe G. Cependant, voici une explication de l'utilité des composants clés de l'algorithme :
+
+- **Clique C** : C'est l'ensemble que nous construisons pour former une clique maximale. Il est initialisé vide et est progressivement construit en ajoutant des sommets au fur et à mesure qu'ils satisfont la propriété de la clique.
+
+- **Sommets de V** : Nous parcourons tous les sommets du graphe G pour déterminer lesquels peuvent être ajoutés à la clique C sans violer la propriété de la clique. Les sommets sont représentés par l'ensemble V.
+
+**Question 3 : Application de l'algorithme glouton :**
+
+Pour appliquer l'algorithme glouton au Problème de Clique Maximum, suivez ces étapes :
+
+1. Donnez un graphe en entrée, G = (V, E), où V est l'ensemble de sommets et E est l'ensemble d'arêtes.
+2. Utilisez l'algorithme glouton pour trouver une clique maximale dans le graphe.
+3. L'algorithme retournera une clique C, qui est une sous-collection maximale de sommets dans le graphe G, formant une clique.
+4. La sortie de l'algorithme est la plus grande clique trouvée.
+
+Veuillez noter que l'algorithme glouton donne une solution approximative au Problème de Clique Maximum, mais il ne garantit pas de trouver la solution optimale. Cependant, il est souvent utilisé car il est simple et rapide. Pour des garanties de solution optimale, des méthodes plus complexes telles que la programmation linéaire en nombres entiers (ILP) peuvent être nécessaires.
